@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 #solo
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked on with a pair.
-=======
+This is a project I completed as a student at [hackreactor](http://hackreactor.com). 
+
 Make something that stores ideas (people can upvote or downvote these ideas)
 maybe store pictures???
 //humor website???
@@ -10,4 +9,3 @@ maybe store pictures???
 	//try heroku?
 
 //called first-project-joseph
->>>>>>> 42741256c96b4b5726c704798402d892adfd773b
