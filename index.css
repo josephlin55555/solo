@@ -1,11 +1,20 @@
 h1 {
-
 }
 
 .inputUser {
-
+  color: green;
 }
 
-.inoutMessage {
-  
+.inputMessage { 
+  color: red;
 } 
+
+.message {
+  
+}
+
+.message:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  cursor: hand;
+}
