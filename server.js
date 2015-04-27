@@ -12,4 +12,8 @@ app.get('/', function(request, response) {
 
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost: ' + port);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 42741256c96b4b5726c704798402d892adfd773b
