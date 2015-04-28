@@ -22,7 +22,6 @@ angular.module('angularApp', [])
     };
 
     $scope.refresh = function() {
-      console.log('function called');
       $http.get('/api/textList').
         success(function(data, status, headers, config) {
           $scope.textList = data;
