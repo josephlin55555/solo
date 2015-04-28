@@ -3,20 +3,18 @@
 <head>
 	<link rel='stylesheet' href='index.css'/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
+	<script src='index.js'></script>
 </head>
-<body>
-	<h1>Voting Ideas!!</h1>
-	<span class='inputText'>Write your idea here! </span> 
-	<br>
-	<span>User: <span>
-	<input type='text' class='inputUser' placeholder='Who is this?'></input>
-	<br>
-	<span>Message: </span>
-	<input type='text' class='inputMessage' placeholder='Write Input Here'></input>
-	<button class='submit'>Click Here to Submit</button>
-  <br>
-	<span class='output'></span>
-
-	<script src='output.js'></script>
+<body ng-app="angularApp">
+	<span ng-controller="MessageController">
+		<form ng-submit="submitText()">
+  		<input ng-model="searchText" placeholder="Share an Idea!">
+		</form>
+  	<div ng-repeat="object in textList">{{object.text}} {{object.likes}}
+  		<button ng-click='like(object)'>Like!</button>
+  		<button ng-click='dislike(object)'>Dislike :(</button>
+  	</div>
+	</span>
 </body>
 </html>
