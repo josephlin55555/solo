@@ -7,13 +7,14 @@ angular.module('angularApp', [])
         .success(function(data, status, headers, config) {
           $scope.textList = data;
 
+          //for first item, $scope.textList.length === 0 at this moment
           var object = {text: $scope.searchText, likes: 0, index: $scope.textList.length};
 
           if(object.text === "Joseph is awesome") {
             object.likes = 9001;
           }
 
-          $scope.textList.push(object);
+          $scope.textList.push(object); //now $scope.textList.length === 1
           $scope.searchText = '';
 
           $http.post('/api/textList', object).
