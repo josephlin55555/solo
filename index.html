@@ -21,11 +21,16 @@
 		<form ng-submit="submitText()">
   		<input ng-minlength="1" ng-model="searchText" placeholder="Share an Idea!" required>
 		</form>
-  	<div ng-repeat="object in textList">{{object.text}} {{object.likes}}
-  		<button ng-click='like(object)'>Like!</button>
-  		<button ng-click='dislike(object)'>Dislike :(</button>
-  		<br>
-  	</div>
+    <table align="center">
+      <!-- don't use object.likes, likes as an attribute is assumed -->
+    <tr ng-repeat='object in textList | orderBy:"-likes"'>
+    <br>
+  	<td class="amessage">Idea #{{object.index}}: {{object.text}}</td>
+  		<td class="alike"><button ng-click='like(object)'>Like!</button></td>
+  		<td class="adislike"><button ng-click='dislike(object)'>Dislike :(</button></td>
+      <td class="alikecounter">{{object.likes}} Likes</td>
+    </tr>
+    </table>
 	</span>
 </body>
 </html>

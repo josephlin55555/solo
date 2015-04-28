@@ -1,7 +1,7 @@
 form {
   text-align: center;
   font-size: 125%;
-  color: green;
+  color: orange;
 }
 
 input {
@@ -9,22 +9,39 @@ input {
   text-align: center;
 }
 
-input:hover {
-
-}
-
 h1 {
+  font-weight: bold;
+  font-size: 2em;
   text-align: center;
 }
 
-div {
-  text-align: center;
-  font-size: 110%;
-}
-
-button {
+table {
+  text-align:center;
 
 }
+
+tr {
+  
+}
+
+.amessage {
+  text-align: left;
+  width: 600px;
+}
+
+.alike {
+  text-align:left;
+}
+
+.adislike {
+  text-align:left;
+}
+
+.alikecounter {
+  width: 75px;
+  text-align: right;
+}
+
 
 
 
