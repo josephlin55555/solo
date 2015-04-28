@@ -16,8 +16,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="angularApp">
-	<h1>Idea Box</h1>
 	<span ng-controller="MessageController">
+
+    <div class="refreshContainer">
+    <button class="refresh" ng-click="refresh()">Refresh</button>
+    <div>
+
+    <h1>Idea Box</h1>
+
 		<form ng-submit="submitText()">
   		<input ng-minlength="1" ng-model="searchText" placeholder="Share an Idea!" required>
 		</form>

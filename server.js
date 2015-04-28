@@ -22,15 +22,17 @@ app.get('/api/textList', function(request, response) {
 });
 
 app.post('/api/textList', function(request, response) {
-  for(var i = 0; i < textList.length; i++) {
-    if(textList[i].likes !== request.body.likes) {
-      textList.push(request.body);
-      response.end();
-    } else {
-      testList[i].likes = request.body.likes;
-      testList[i].text = request.body.text;
+  if(Array.isArray(request.body)) {
+    for(var i = 0; i < textList.length; i++) {
+      if(textList[i].index === request.body[0]) {
+        textList[i].likes = request.body[1];
+        testList[i].text = request.body[2];
+      }
     }
+  } else {
+    textList.push(request.body);
   }
+  response.end();
 });
 
 app.listen(port, function() {

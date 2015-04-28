@@ -17,11 +17,10 @@ h1 {
 
 table {
   text-align:center;
-
 }
 
-tr {
-  
+.refreshContainer {
+  text-align: right;
 }
 
 .amessage {

@@ -21,6 +21,17 @@ angular.module('angularApp', [])
       });
     };
 
+    $scope.refresh = function() {
+      console.log('function called');
+      $http.get('/api/textList').
+        success(function(data, status, headers, config) {
+          $scope.textList = data;
+        }).
+        error(function(data, status, headers, config) {
+
+        });
+    };
+
     $scope.like = function(object) {
       if(object.likes > -5) {
         object.likes += 1;
@@ -30,13 +41,15 @@ angular.module('angularApp', [])
         object.text += " is an awesome idea!"
       }
 
-      $http.post('/api/textList', object).
-      success(function(data, status, headers, config) {
-        console.log('success');
-      }).
-      error(function(data, status, headers, config) {
-        console.log('error');
-      });
+      var array = [object.index, object.likes, object.text];
+      $http.post('/api/textList', array).
+        success(function(data, status, headers, config) {
+
+        }).
+        error(function(data, status, headers, config) {
+
+        }); 
+
     };
 
     $scope.dislike = function(object) {
@@ -54,29 +67,17 @@ angular.module('angularApp', [])
         object.text += " idea";
       }
 
-      $http.post('/api/textList', object).
-      success(function(data, status, headers, config) {
-        console.log('success');
-      }).
-      error(function(data, status, headers, config) {
-        console.log('error');
-      });
+      var array = [object.index, object.likes, object.text];
+      $http.post('/api/textList', array).
+        success(function(data, status, headers, config) {
+
+        }).
+        error(function(data, status, headers, config) {
+
+        });
     };
 
-    var reload = function(){
-      $http.get('/api/textList').
-      success(function(data, status, headers, config) {
-        $scope.textList = data;
-        setTimeout(function() {
-          reload();
-        }, 1000);
-      }).
-      error(function(data, status, headers, config) {
-        console.log('error');
-        reload();
-      });
-    }
-    reload();
+
   });
 
 
