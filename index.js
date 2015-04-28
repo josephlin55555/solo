@@ -1,11 +1,9 @@
 angular.module('angularApp', [])
   .controller('MessageController', function($scope, $http) {
     $scope.textList = [];
-    var index = 0;
 
     $scope.submitText = function () {
-      index++;
-      var object = {text: $scope.searchText, likes: 0, index: index};
+      var object = {text: $scope.searchText, likes: 0, index: $scope.textList.length - 1};
 
       if(object.text === "Joseph is awesome") {
         object.likes = 9001;
@@ -14,10 +12,9 @@ angular.module('angularApp', [])
       $scope.textList.push(object);
       $scope.searchText = '';
 
-      $http.post('/api/textList', $scope.textList).
+      $http.post('/api/textList', object).
       success(function(data, status, headers, config) {
-        $scope.textList = data;
-        console.log(data);
+        console.log('success');
       }).
       error(function(data, status, headers, config) {
         console.log('error');
@@ -50,6 +47,18 @@ angular.module('angularApp', [])
       }
     };
 
+    var reload = function(){
+      $http.get('/api/textList').
+      success(function(data, status, headers, config) {
+        $scope.textList = data;
+        reload();
+      }).
+      error(function(data, status, headers, config) {
+        console.log('error');
+        reload();
+      });
+    }
+    reload();
   });
 
 

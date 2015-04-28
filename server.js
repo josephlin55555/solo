@@ -1,6 +1,10 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 var port = process.env.PORT || 3000;
 
@@ -18,7 +22,9 @@ app.get('/api/textList', function(request, response) {
 });
 
 app.post('/api/textList', function(request, response) {
-  response.status(302).send();
+  console.log(request.body);
+  textList.push(request.body);
+  response.end();
 });
 
 app.listen(port, function() {
