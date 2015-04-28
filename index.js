@@ -85,6 +85,15 @@ angular.module('angularApp', [])
         });
     };
 
+    //when page first loads, load all messages
+    $http.get('/api/textList').
+      success(function(data, status, headers, config) {
+        $scope.textList = data;
+      }).
+      error(function(data, status, headers, config) {
+
+      });
+
 
   });
 
