@@ -67,7 +67,9 @@ angular.module('angularApp', [])
       $http.get('/api/textList').
       success(function(data, status, headers, config) {
         $scope.textList = data;
-        reload();
+        setTimeout(function() {
+          reload();
+        }, 1000);
       }).
       error(function(data, status, headers, config) {
         console.log('error');
