@@ -1,20 +1,33 @@
-h1 {
-}
-
-.inputUser {
+form {
+  text-align: center;
+  font-size: 125%;
   color: green;
 }
 
-.inputMessage { 
-  color: red;
-} 
-
-.message {
-  
+input {
+  width: 65%;
+  text-align: center;
 }
 
-.message:hover{
-  text-decoration: underline;
-  cursor: pointer;
-  cursor: hand;
+input:hover {
+
 }
+
+h1 {
+  text-align: center;
+}
+
+div {
+  text-align: center;
+  font-size: 110%;
+}
+
+button {
+
+}
+
+
+
+
+
+

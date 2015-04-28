@@ -5,15 +5,26 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
 	<script src='index.js'></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="angularApp">
+	<h1>Idea Box</h1>
 	<span ng-controller="MessageController">
 		<form ng-submit="submitText()">
-  		<input ng-model="searchText" placeholder="Share an Idea!">
+  		<input ng-minlength="1" ng-model="searchText" placeholder="Share an Idea!" required>
 		</form>
   	<div ng-repeat="object in textList">{{object.text}} {{object.likes}}
   		<button ng-click='like(object)'>Like!</button>
   		<button ng-click='dislike(object)'>Dislike :(</button>
+  		<br>
   	</div>
 	</span>
 </body>

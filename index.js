@@ -6,6 +6,11 @@ angular.module('angularApp', [])
     $scope.submitText = function () {
       var object = {text: $scope.searchText, likes: 0};
       $scope.textList.push(object);
+
+      if(object.text === "Joseph is awesome") {
+        object.likes = 9001;
+      }
+
       $scope.searchText = '';
     };
 
