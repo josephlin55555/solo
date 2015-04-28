@@ -3,7 +3,7 @@ angular.module('angularApp', [])
     $scope.textList = [];
 
     $scope.submitText = function () {
-      var object = {text: $scope.searchText, likes: 0, index: $scope.textList.length - 1};
+      var object = {text: $scope.searchText, likes: 0, index: $scope.textList.length + 1};
 
       if(object.text === "Joseph is awesome") {
         object.likes = 9001;
