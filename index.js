@@ -3,22 +3,31 @@ angular.module('angularApp', [])
     $scope.textList = [];
 
     $scope.submitText = function () {
-      var object = {text: $scope.searchText, likes: 0, index: $scope.textList.length + 1};
+      $http.get('/api/textList')
+        .success(function(data, status, headers, config) {
+          $scope.textList = data;
 
-      if(object.text === "Joseph is awesome") {
-        object.likes = 9001;
-      }
+          var object = {text: $scope.searchText, likes: 0, index: $scope.textList.length};
 
-      $scope.textList.push(object);
-      $scope.searchText = '';
+          if(object.text === "Joseph is awesome") {
+            object.likes = 9001;
+          }
 
-      $http.post('/api/textList', object).
-      success(function(data, status, headers, config) {
-        console.log('success');
-      }).
-      error(function(data, status, headers, config) {
-        console.log('error');
-      });
+          $scope.textList.push(object);
+          $scope.searchText = '';
+
+          $http.post('/api/textList', object).
+          success(function(data, status, headers, config) {
+
+          }).
+          error(function(data, status, headers, config) {
+            
+          });
+
+        }).
+        error(function(data, status, headers, config) {
+
+        }); 
     };
 
     $scope.refresh = function() {
