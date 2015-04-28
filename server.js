@@ -17,12 +17,14 @@ app.get('/', function(request, response) {
 
 var textList = [];
 
+//takes textList array and returns it to client
 app.get('/api/textList', function(request, response) {
   response.json(textList);
 });
 
+//takes object and pushes it into textList
+//in case array is sent (for likes, dislikes, and message concatenation), overwrite using the array values
 app.post('/api/textList', function(request, response) {
-  console.log(request.body);
   if(Array.isArray(request.body)) {
     for(var i = 0; i < textList.length; i++) {
       if(textList[i].index === request.body[0]) {

@@ -31,16 +31,6 @@ angular.module('angularApp', [])
         }); 
     };
 
-    $scope.refresh = function() {
-      $http.get('/api/textList').
-        success(function(data, status, headers, config) {
-          $scope.textList = data;
-        }).
-        error(function(data, status, headers, config) {
-
-        });
-    };
-
     $scope.like = function(object) {
       if(object.likes > -5) {
         object.likes += 1;
