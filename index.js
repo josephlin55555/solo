@@ -10,10 +10,28 @@ angular.module('angularApp', [])
     };
 
     $scope.like = function(object) {
-      object.likes += 1;
+      if(object.likes > -5) {
+        object.likes += 1;
+      }
+
+      if(object.likes === 10) {
+        object.text += " is an awesome idea!"
+      }
     };
 
     $scope.dislike = function(object) {
-      object.likes -= 1;
+      if(object.likes < 10) {
+        object.likes -= 1;
+      }
+      if(object.likes === -5) {
+        object.text += " is";
+        object.likes
+      } else if(object.likes === -10) {
+        object.text += " a really really";
+      } else if(object.likes === -15) {
+        object.text += " shitty";
+      } else if(object.likes === -20) {
+        object.text += " idea";
+      }
     };
   });
