@@ -38,7 +38,7 @@ angular.module('angularApp', [])
       }
 
       if(object.likes === 10) {
-        object.text += " is an awesome idea!"
+        object.text = object.text + " is an awesome idea!"
       }
 
       var array = [object.index, object.likes, object.text];
