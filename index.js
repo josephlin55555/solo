@@ -29,6 +29,14 @@ angular.module('angularApp', [])
       if(object.likes === 10) {
         object.text += " is an awesome idea!"
       }
+
+      $http.post('/api/textList', object).
+      success(function(data, status, headers, config) {
+        console.log('success');
+      }).
+      error(function(data, status, headers, config) {
+        console.log('error');
+      });
     };
 
     $scope.dislike = function(object) {
@@ -45,6 +53,14 @@ angular.module('angularApp', [])
       } else if(object.likes === -20) {
         object.text += " idea";
       }
+
+      $http.post('/api/textList', object).
+      success(function(data, status, headers, config) {
+        console.log('success');
+      }).
+      error(function(data, status, headers, config) {
+        console.log('error');
+      });
     };
 
     var reload = function(){
