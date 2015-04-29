@@ -76,15 +76,18 @@ angular.module('angularApp', [])
         });
     };
 
-    //when page first loads, load all messages
-    $http.get('/api/textList').
+    //reloads page constantly when called
+    $scope.refresh = function() {
+      $http.get('/api/textList').
       success(function(data, status, headers, config) {
         $scope.textList = data;
+        $scope.refresh();
       }).
       error(function(data, status, headers, config) {
-
+        $scope.refresh();
       });
-
+    };
+    $scope.refresh(); //call refresh here
 
   });
 
